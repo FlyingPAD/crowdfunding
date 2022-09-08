@@ -14,16 +14,26 @@ namespace crowdfunding.api
             /* --------------------------------------------------------------------------------------------------- */
             /* - ORIGINAL SCRIPT */
             /* --------------------------------------------------------------------------------------------------- */
-                var builder = WebApplication.CreateBuilder(args);
+            string allowOrigins = "AllowOrigins";
 
-                // Add services to the container.
+            var builder = WebApplication.CreateBuilder(args);
 
-                    builder.Services.AddControllers();
+            // Add services to the container.
 
-                // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy(allowOrigins, Policy =>
+                    {
+                        Policy.WithOrigins("*");
+                    });
+                });
 
-                    builder.Services.AddEndpointsApiExplorer();
-                    builder.Services.AddSwaggerGen();
+                builder.Services.AddControllers();
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+                builder.Services.AddEndpointsApiExplorer();
+                builder.Services.AddSwaggerGen();
             /* --------------------------------------------------------------------------------------------------- */
             /* - SERVICES TO ADD */
             /* --------------------------------------------------------------------------------------------------- */
@@ -42,6 +52,8 @@ namespace crowdfunding.api
                 }
 
                 app.UseHttpsRedirection();
+
+                app.UseCors(allowOrigins);
 
                 app.UseAuthorization();
 

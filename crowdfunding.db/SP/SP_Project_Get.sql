@@ -1,11 +1,14 @@
-﻿CREATE PROCEDURE [dbo].[SP_Project_Get_by_ID]
-
+﻿CREATE PROCEDURE [dbo].[SP_Project_Get]
 AS
 BEGIN
 	SELECT	[Id],
-			[Name],
 			[Created],
-			[Modified]
-		FROM [Project]
+			[Modified],
+			[Name],
+			[Description],
+			[URL_Video],
+			[Money_Ceiling],
+			[User_Id]			
+	FROM [Project]
 END
 GO
