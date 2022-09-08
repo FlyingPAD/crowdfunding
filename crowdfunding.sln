@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crowdfunding.api", "crowdfunding.api\crowdfunding.api.csproj", "{1C84293B-B6E2-400E-8120-A345B9E02E23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - API", "01 - API", "{A60DE3E2-F958-42F8-AA44-7BB1AAF4B609}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - BLL", "02 - BLL", "{EA3A1728-23BB-41C7-B0BA-FAF22F334559}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - CMN", "03 - CMN", "{EACB8BCF-A2CB-4B08-8ACE-6FE81ACD78AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - DAL", "04 - DAL", "{E3368C3E-43F7-4514-853D-0D3AF0C3472F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - DB", "05 - DB", "{AC84AB92-A574-4BBD-964C-4F1156640D0F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "crowdfunding.db", "crowdfunding.db\crowdfunding.db.sqlproj", "{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crowdfunding.dal", "crowdfunding.dal\crowdfunding.dal.csproj", "{02743171-9F5F-453E-B390-00102FDFD703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crowdfunding.cmn", "crowdfunding.cmn\crowdfunding.cmn.csproj", "{F3CE6251-B983-453C-BC8C-67433AA11764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crowdfunding.bll", "crowdfunding.bll\crowdfunding.bll.csproj", "{95338F6C-8ADB-486A-A0FD-5E80D277EF09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C84293B-B6E2-400E-8120-A345B9E02E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C84293B-B6E2-400E-8120-A345B9E02E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C84293B-B6E2-400E-8120-A345B9E02E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C84293B-B6E2-400E-8120-A345B9E02E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{02743171-9F5F-453E-B390-00102FDFD703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02743171-9F5F-453E-B390-00102FDFD703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02743171-9F5F-453E-B390-00102FDFD703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02743171-9F5F-453E-B390-00102FDFD703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3CE6251-B983-453C-BC8C-67433AA11764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3CE6251-B983-453C-BC8C-67433AA11764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3CE6251-B983-453C-BC8C-67433AA11764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3CE6251-B983-453C-BC8C-67433AA11764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95338F6C-8ADB-486A-A0FD-5E80D277EF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95338F6C-8ADB-486A-A0FD-5E80D277EF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95338F6C-8ADB-486A-A0FD-5E80D277EF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95338F6C-8ADB-486A-A0FD-5E80D277EF09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C84293B-B6E2-400E-8120-A345B9E02E23} = {A60DE3E2-F958-42F8-AA44-7BB1AAF4B609}
+		{E1A72E4D-BA48-451F-86FD-22AC9DED8B9F} = {AC84AB92-A574-4BBD-964C-4F1156640D0F}
+		{02743171-9F5F-453E-B390-00102FDFD703} = {E3368C3E-43F7-4514-853D-0D3AF0C3472F}
+		{F3CE6251-B983-453C-BC8C-67433AA11764} = {EACB8BCF-A2CB-4B08-8ACE-6FE81ACD78AD}
+		{95338F6C-8ADB-486A-A0FD-5E80D277EF09} = {EA3A1728-23BB-41C7-B0BA-FAF22F334559}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B181F9E-F314-4BFE-9C78-2276108C6D98}
+	EndGlobalSection
+EndGlobal
