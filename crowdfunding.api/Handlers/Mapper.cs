@@ -5,24 +5,27 @@ namespace crowdfunding.api.Handlers
 {
     public static class Mapper
     {
-        public static Project ToProject(this ProjectInsert entity)
+        /* ------------------------------------------------------------------------------------ */
+        /* - USERS */
+        /* ------------------------------------------------------------------------------------ */
+        public static User ToUser(this UserRegister entity)
         {
             if (entity == null) return null;
-            return new Project()
+            return new User()
             {
-                Name = entity.Name,
-                Created = entity.Created,
-                Modified = entity.Modified,
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
+                Email = entity.Email,
+                Password = entity.Password,
             };
         }
-        public static Project ToProject(this ProjectUpdate entity)
+        public static User ToUser(this UserLogin entity)
         {
             if (entity == null) return null;
-            return new Project()
+            return new User()
             {
-                Name = entity.Name,
-                Created = entity.Created,
-                Modified = entity.Modified,
+                Email = entity.Email,
+                Password = entity.Password
             };
         }
     }

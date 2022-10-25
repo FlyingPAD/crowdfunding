@@ -6,25 +6,32 @@ namespace crowdfunding.dal.Services
 {
     public abstract class BaseService
     {
-        private readonly IConfiguration _config;
-        protected BaseService(IConfiguration config)
-        {
-            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
-            _config = config;
-        }
-        protected string ConnectionString
-        {
-            get
+        /* ------------------------------------------------------------------------------------ */
+        /* - PROPERTIES */
+        /* ------------------------------------------------------------------------------------ */
+            private readonly IConfiguration _config;
+
+            protected string ConnectionString
             {
-                return this._config.GetConnectionString("localDb");
+                get
+                {
+                    return this._config.GetConnectionString("localDb");
+                }
             }
-        }
-        protected string InvariantName
-        {
-            get
+            protected string InvariantName
             {
-                return this._config.GetSection("InvariantNames").GetSection("localDb").Value;
+                get
+                {
+                    return this._config.GetSection("InvariantNames").GetSection("localDb").Value;
+                }
             }
-        }
+        /* ------------------------------------------------------------------------------------ */
+        /* - CONSTRUCTOR */
+        /* ------------------------------------------------------------------------------------ */
+            protected BaseService(IConfiguration config)
+            {
+                DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
+                _config = config;
+            }
     }
 }

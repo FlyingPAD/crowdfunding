@@ -11,55 +11,53 @@ namespace crowdfunding.api
     {
         public static void Main(string[] args)
         {
-            /* --------------------------------------------------------------------------------------------------- */
-            /* - ORIGINAL SCRIPT */
-            /* --------------------------------------------------------------------------------------------------- */
-            string allowOrigins = "AllowOrigins";
-
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddControllers();
 
-                builder.Services.AddCors(options =>
+            builder.Services.AddCors(options =>
                 {
-                    options.AddPolicy(allowOrigins, Policy =>
+                    options.AddPolicy("AllowAll", Policy =>
                     {
-                        Policy.WithOrigins("*");
+                        Policy.WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
                     });
                 });
-
-                builder.Services.AddControllers();
-
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
                 builder.Services.AddEndpointsApiExplorer();
                 builder.Services.AddSwaggerGen();
             /* --------------------------------------------------------------------------------------------------- */
             /* - SERVICES TO ADD */
             /* --------------------------------------------------------------------------------------------------- */
-                builder.Services.AddScoped<IProjectRepository<D.Entities.Project>, D.Services.ProjectService>();
-                builder.Services.AddScoped<IProjectRepository<B.Entities.Project>, B.Services.ProjectService>();
+            
+                builder.Services.AddScoped<IProjectRepository<int, D.Entities.Project>, D.Services.ProjectService>();
+                builder.Services.AddScoped<IProjectRepository<int, B.Entities.Project>, B.Services.ProjectService>();
+
+                builder.Services.AddScoped<IUserRepository<D.Entities.User>, D.Services.UserService>();
+                builder.Services.AddScoped<IUserRepository<B.Entities.User>, B.Services.UserService>();
+            
             /* --------------------------------------------------------------------------------------------------- */
-            /* - ORIGINAL SCRIPT */
-            /* --------------------------------------------------------------------------------------------------- */
-                var app = builder.Build();
+            
+            var app = builder.Build();
 
-                // Configure the HTTP request pipeline.
-                if (app.Environment.IsDevelopment())
-                {
-                    app.UseSwagger();
-                    app.UseSwaggerUI();
-                }
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
-                app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
-                app.UseCors(allowOrigins);
+            app.UseCors("AllowAll");
 
-                app.UseAuthorization();
+            app.UseAuthorization();
 
-                app.MapControllers();
+            app.MapControllers();
 
-                app.Run();
+            app.Run();
         }
     }
 }

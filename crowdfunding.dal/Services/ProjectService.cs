@@ -8,59 +8,36 @@ using static crowdfunding.dal.Mapper.Mapper;
 
 namespace crowdfunding.dal.Services
 {
-    public class ProjectService : BaseService, IProjectRepository<Project>
+    public class ProjectService : BaseService, IProjectRepository<int, Project>
     {
-            public ProjectService(IConfiguration config) : base(config) { }
-        // -----------------------------------------------------------------------------------------------------------------
-        // - CREATE
-        // -----------------------------------------------------------------------------------------------------------------
-            public int Insert(Project data)
-            {
-                Connection con = new Connection(InvariantName, ConnectionString);
-                Command com = new Command("CreateGlossary", true);
-                com.AddParameter("Name", data.Name);
-                com.AddParameter("Created", data.Created);
-                com.AddParameter("Modified", data.Modified);
-                return (int)con.ExecuteScalar(com);
-            }
-        // -----------------------------------------------------------------------------------------------------------------
-        // - READ
-        // -----------------------------------------------------------------------------------------------------------------
-            public IEnumerable<Project> Get()
-            {
-                Connection con = new Connection(InvariantName, ConnectionString);
-                Command com = new Command("SELECT * FROM Project");
-                return con.ExecuteReader<Project>(com, ConvertProject);
-            }
-            public Project Get(int id)
-            {
-                Connection con = new Connection(InvariantName, ConnectionString);
-                Command com = new Command("SELECT * FROM Project WHERE Id = @id");
-                com.AddParameter("Id", id);
-                return con.ExecuteReader<Project>(com, ConvertProject).SingleOrDefault();
-            }
-        // -----------------------------------------------------------------------------------------------------------------
-        // - UPDATE
-        // -----------------------------------------------------------------------------------------------------------------
-            public bool Update(int id, Project data)
-            {
-                Connection con = new Connection(InvariantName, ConnectionString);
-                Command com = new Command("UpdateProject", true);
-                com.AddParameter("Id", id);
-                com.AddParameter("Name", data.Name);
-                com.AddParameter("Created", data.Created);
-                com.AddParameter("Modified", data.Modified);
-                return con.ExecuteNonQuery(com) > 0;
-            }
-        // -----------------------------------------------------------------------------------------------------------------
-        // - DELETE
-        // -----------------------------------------------------------------------------------------------------------------
-            public bool Delete(int id)
-            {
-                Connection con = new Connection(InvariantName, ConnectionString);
-                Command com = new Command("DeleteProject", true);
-                com.AddParameter("Id", id);
-                return con.ExecuteNonQuery(com) > 0;
-            }
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
+        /// <param name="config"></param>
+        public ProjectService(IConfiguration config) : base(config) { }
+        // -------------------------------------------------------------------------        
+        /// <summary>
+        /// METHOD : GET ALL PROJECTS
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Project> Get()
+        {
+            Connection con = new Connection(InvariantName, ConnectionString);
+            Command com = new Command("SP_Project_Get", true);
+            return con.ExecuteReader<Project>(com, ConvertProject);
+        }
+        // -------------------------------------------------------------------------  
+        /// <summary>
+        /// METHOD : GET PROJECT BY ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Project Get(int id)
+        {
+            Connection con = new Connection(InvariantName, ConnectionString);
+            Command com = new Command("SP_Project_Get_By_Id", true);
+            com.AddParameter("Id", id);
+            return con.ExecuteReader<Project>(com, ConvertProject).SingleOrDefault();
+        }
     }
 }

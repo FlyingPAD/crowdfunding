@@ -66,8 +66,11 @@
     <Build Include="Tables\Project.sql" />
     <Build Include="SP\SP_Project_Get.sql" />
     <Build Include="SP\SP_Project_Get_By_Id.sql" />
-    <Build Include="SP\SP_User_Insert.sql" />
+    <Build Include="SP\SP_User_Register.sql" />
     <Build Include="SF\SF_Salt.sql" />
+    <Build Include="SP\SP_User_Login.sql" />
+    <Build Include="Tables\Company.sql" />
+    <Build Include="Tables\User_Category.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="crowdfunding.db.publish.xml" />

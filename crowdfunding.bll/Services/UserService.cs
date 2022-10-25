@@ -7,40 +7,38 @@ using D = crowdfunding.dal.Entities;
 
 namespace crowdfunding.bll.Services
 {
-    public class ProjectService : IProjectRepository<int, Project>
+    public class UserService : IUserRepository<User>
     {
         /// <summary>
-        /// PROPERTIES
+        /// PROPERTIES :
         /// </summary>
-        private readonly IProjectRepository<int, D.Project> _repository;
+        private readonly IUserRepository<D.User> _repository;
         // ------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// CONSTRUCTOR
+        /// CONSTRUCTOR :
         /// </summary>
         /// <param name="repository"></param>
-        public ProjectService(IProjectRepository<int, D.Project> repository)
+        public UserService(IUserRepository<D.User> repository)
         {
             this._repository = repository;
         }
         // ------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// METHOD : GET ALL PROJECTS
+        /// METHOD : LOGIN
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        public IEnumerable<Project> Get()
+        public User? Login(string email, string password)
         {
-            return _repository.Get().Select(c => c.ToBLL());
+            return _repository.Login(email, password)?.ToBLL();
         }
         // ------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// METHOD : GET PROJECT BY ID
+        /// METHOD : REGISTER
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        public Project Get(int id)
+        public User? Register(User user)
         {
-            return _repository.Get(id).ToBLL();
+            return _repository.Register(user.ToDAL())?.ToBLL();
         }
     }
 }

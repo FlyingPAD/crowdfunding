@@ -14,4 +14,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="URL_Video" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0412964a-605d-47de-8656-b9a56729832b" ChangeDateTime="09/14/2022 09:29:30">
+    <Property Name="ElementName" Value="[dbo].[User_Admin].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User_Admin]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c3b91ebc-380a-4152-b597-520fc9909573" ChangeDateTime="09/14/2022 09:30:52">
+    <Property Name="ElementName" Value="[dbo].[User_Registered].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User_Registered]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a3f26601-be0f-4e22-aa9c-be72ab528ce8" ChangeDateTime="09/14/2022 11:50:16">
+    <Property Name="ElementName" Value="[dbo].[User_Category].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User_Category]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ec6e02c8-8ebd-41c2-99d2-c05cb48bcc8e" ChangeDateTime="09/14/2022 12:01:21">
+    <Property Name="ElementName" Value="[dbo].[User].[Category_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_Category" />
+  </Operation>
 </Operations>

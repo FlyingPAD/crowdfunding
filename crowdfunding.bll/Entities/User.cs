@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace crowdfunding.dal.Entities
+namespace crowdfunding.bll.Entities
 {
     public class User
     {

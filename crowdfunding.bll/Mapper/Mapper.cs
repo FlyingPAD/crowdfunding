@@ -5,27 +5,72 @@ namespace crowdfunding.bll.Mapper
 {
     public static class Mapper
     {
-        public static B.Project ToBLL(this D.Project entity)
-        {
-            if (entity == null) return null;
-            return new B.Project()
+        /* ------------------------------------------------------------------------------------ */
+        /* - PROJECT */
+        /* ------------------------------------------------------------------------------------ */
+            public static B.Project ToBLL(this D.Project entity)
             {
-                Id = entity.Id,
-                Name = entity.Name,
-                Created = entity.Created,
-                Modified = entity.Modified,
-            };
-        }
-        public static D.Project ToDAL(this B.Project entity)
-        {
-            if (entity == null) return null;
-            return new D.Project()
+                if (entity == null) return null;
+                return new B.Project()
+                {
+                    Id = entity.Id,
+                    Created = entity.Created,
+                    Modified = entity.Modified,
+                    Name = entity.Name,
+                    Description = entity.Description,
+                    UrlVideo = entity.UrlVideo,
+                    UrlPicture = entity.UrlPicture,
+                    Money_Ceiling = entity.Money_Ceiling,
+                    UserId = entity.UserId,
+                };
+            }
+            public static D.Project ToDAL(this B.Project entity)
             {
-                Id = entity.Id,
-                Name = entity.Name,
-                Created = entity.Created,
-                Modified = entity.Modified,
-            };
-        }
+                if (entity == null) return null;
+                return new D.Project()
+                {
+                    Id = entity.Id,
+                    Created = entity.Created,
+                    Modified = entity.Modified,
+                    Name = entity.Name,
+                    Description = entity.Description,
+                    UrlVideo = entity.UrlVideo,
+                    UrlPicture = entity.UrlPicture,
+                    Money_Ceiling = entity.Money_Ceiling,
+                    UserId = entity.UserId,
+                };
+            }
+        /* ------------------------------------------------------------------------------------ */
+        /* - USER */
+        /* ------------------------------------------------------------------------------------ */
+            public static B.User ToBLL(this D.User entity)
+            {
+                return new B.User()
+                {
+                    Id = entity.Id,
+                    Created = entity.Created,
+                    Modified = entity.Modified,
+                    FirstName = entity.FirstName,
+                    LastName = entity.LastName,
+                    Email = entity.Email,
+                    Password = entity.Password,
+                    User_Category = entity.User_Category,
+                };
+            }
+            public static D.User ToDAL(this B.User entity)
+            {
+                if (entity == null) return null;
+                return new D.User()
+                {
+                    Id = entity.Id,
+                    Created = entity.Created,
+                    Modified = entity.Modified,
+                    FirstName = entity.FirstName,
+                    LastName = entity.LastName,
+                    Email = entity.Email,
+                    Password = entity.Password,
+                    User_Category = entity.User_Category,
+                };
+            }
     }
 }
